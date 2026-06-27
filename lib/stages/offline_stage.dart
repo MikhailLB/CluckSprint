@@ -101,9 +101,9 @@ class _RetryPillState extends State<_RetryPill> {
 
   @override
   Widget build(BuildContext context) {
-    final pad = widget.compact ? 8.0 : 10.0;
+    final pad = widget.compact ? 10.0 : 13.0;
     final wide = MediaQuery.of(context).size.width *
-        (widget.compact ? 0.26 : 0.50);
+        (widget.compact ? 0.32 : 0.62);
 
     return GestureDetector(
       onTapDown: (_) => setState(() => _down = true),
@@ -129,8 +129,8 @@ class _RetryPillState extends State<_RetryPill> {
             color: widget.busy
                 ? const Color(0xFFD63F00).withValues(alpha: 0.35)
                 : null,
-            borderRadius: BorderRadius.circular(22),
-            border: Border.all(color: Colors.white, width: 2),
+            borderRadius: BorderRadius.circular(26),
+            border: Border.all(color: Colors.white, width: 3),
             boxShadow: widget.busy
                 ? const []
                 : const [
@@ -147,22 +147,22 @@ class _RetryPillState extends State<_RetryPill> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 14,
-                      height: 14,
+                      width: 16,
+                      height: 16,
                       child: CircularProgressIndicator(
-                        strokeWidth: 2,
+                        strokeWidth: 2.2,
                         valueColor:
                             AlwaysStoppedAnimation<Color>(Colors.white),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    SizedBox(width: 10),
                     Text(
                       'Connecting…',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
-                        fontSize: 13,
-                        letterSpacing: 0.6,
+                        fontSize: 15,
+                        letterSpacing: 0.8,
                       ),
                     ),
                   ],
@@ -173,8 +173,8 @@ class _RetryPillState extends State<_RetryPill> {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w900,
-                      fontSize: widget.compact ? 13 : 14,
-                      letterSpacing: 1.4,
+                      fontSize: widget.compact ? 15 : 17,
+                      letterSpacing: 1.6,
                       shadows: const [
                         Shadow(
                             color: Colors.black45,
