@@ -23,12 +23,12 @@ void main() {
   // ----------------------------------------------------------------
   // AppsFlyer Dev Key — paste plain text here when ready
   // ----------------------------------------------------------------
-  const String afDevKey = '';
+  const String afDevKey = '8SPnxAnBWmB6MYt9whpFFE';
 
   // ----------------------------------------------------------------
   // Firebase sender / project number (digits only)
   // ----------------------------------------------------------------
-  const String firebaseProject = '';
+  const String firebaseProject = '440691847656';
 
   // ----------------------------------------------------------------
   // GCD endpoint (host + path)

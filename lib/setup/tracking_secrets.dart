@@ -12,18 +12,23 @@ import '../cipher/byte_cipher.dart';
 //  tool source. Paste the printed arrays below.
 // ============================================================
 
-/// AppsFlyer Dev Key. Plaintext: provided separately by ops.
+/// AppsFlyer Dev Key.
 String resolveTrackingKey() {
-  // Fill after running `dart run tool/wrap_secrets.dart`.
-  const wrapped = <int>[];
+  const wrapped = <int>[
+    0x80, 0x8b, 0x4b, 0x03, 0xfd, 0x3e, 0xda, 0xa8,
+    0x60, 0xbc, 0xa6, 0xb9, 0x82, 0x85, 0x19, 0x09,
+    0xa5, 0xed, 0x23, 0x18, 0xc5, 0x73,
+  ];
   if (wrapped.isEmpty) return '';
   return unwrap(wrapped);
 }
 
 /// Firebase project/sender number (digits only).
 String resolveMessagingSender() {
-  // Fill after running `dart run tool/wrap_secrets.dart`.
-  const wrapped = <int>[];
+  const wrapped = <int>[
+    0x8c, 0xec, 0x2b, 0x5b, 0xbc, 0x4e, 0x8c, 0xde,
+    0x00, 0xe7, 0xd1, 0xb9,
+  ];
   if (wrapped.isEmpty) return '';
   return unwrap(wrapped);
 }

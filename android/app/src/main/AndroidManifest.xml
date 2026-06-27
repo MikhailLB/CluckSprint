@@ -32,14 +32,15 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-            <!-- AppsFlyer OneLink deep link host. Replace with the real
-                 OneLink subdomain when it is provisioned for this app. -->
+            <!-- AppsFlyer OneLink deep link host for CluckSprint.
+                 Subdomain + path prefix come from the OneLink dashboard. -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="https"
-                      android:host="cluckrun.onelink.me"/>
+                      android:host="clucksprint.onelink.me"
+                      android:pathPrefix="/Le55"/>
             </intent-filter>
         </activity>
 
