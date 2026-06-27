@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "440691847656",
+    "project_id": "clucksprint",
+    "storage_bucket": "clucksprint.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440691847656:android:c38e9cc37065ef1568345d",
+        "android_client_info": {
+          "package_name": "com.cluckrun.cluckrungame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-Ajk0qiM-PFzXwoSDd0AtUq9gU56QKNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

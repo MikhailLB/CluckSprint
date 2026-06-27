@@ -3,7 +3,7 @@ description: "Cluck Sprint - endless chicken road crossing game."
 publish_to: 'none'
 
 # version: <semver>+<build>  → versionName + versionCode (single source of truth)
-version: 1.0.0+1
+version: 1.0.1+3
 
 environment:
   sdk: ^3.12.2
