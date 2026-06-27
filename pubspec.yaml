@@ -52,9 +52,15 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: false
+  # Legacy launcher (pre-Oreo / non-adaptive): full art, fills the
+  # whole canvas. May still be cropped to a circle but that's OK on
+  # devices that don't use adaptive masks.
   image_path: "assets/iconnn.png"
-  adaptive_icon_background: "assets/iconnn.png"
-  adaptive_icon_foreground: "assets/transparent.png"
+  # Adaptive icon: foreground is the art pre-padded so it fits inside
+  # the Android safe zone regardless of the launcher mask shape (circle,
+  # squircle, teardrop, etc.) — nothing gets clipped off the chicken.
+  adaptive_icon_foreground: "assets/icon_adaptive_fg.png"
+  adaptive_icon_background: "assets/icon_adaptive_bg.png"
   min_sdk_android: 21
   remove_alpha_ios: true
 

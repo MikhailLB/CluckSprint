@@ -126,8 +126,15 @@ class _PushPromoStageState extends State<PushPromoStage> {
                       compact: true,
                     ),
                   ),
-                  const SizedBox(height: 6),
-                  _SkipLink(busy: _busy, onTap: _onSkip, compact: true),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: size.width * 0.34,
+                    child: _SkipLink(
+                      busy: _busy,
+                      onTap: _onSkip,
+                      compact: true,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -258,28 +265,45 @@ class _SkipLinkState extends State<_SkipLink> {
         setState(() => _down = false);
         if (!widget.busy) widget.onTap();
       },
-      child: AnimatedOpacity(
-        opacity: _down ? 0.55 : 0.9,
+      child: AnimatedScale(
+        scale: _down ? 0.97 : 1.0,
         duration: const Duration(milliseconds: 80),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: widget.compact ? 4 : 8),
-          child: Text(
-            'Skip',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-              fontSize: widget.compact ? 14 : 18,
-              letterSpacing: 0.7,
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.white70,
-              decorationThickness: 2,
-              shadows: const [
-                Shadow(
-                  color: Colors.black54,
-                  blurRadius: 6,
-                  offset: Offset(0, 2),
-                ),
-              ],
+        child: Container(
+          width: double.infinity,
+          padding:
+              EdgeInsets.symmetric(vertical: widget.compact ? 10 : 16),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFF6CCFF6), Color(0xFF1E88E5)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(22),
+            border: Border.all(color: Colors.white, width: 3),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0x551E88E5),
+                blurRadius: 12,
+                offset: Offset(0, 6),
+              ),
+            ],
+          ),
+          child: Center(
+            child: Text(
+              'Skip',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w900,
+                fontSize: widget.compact ? 16 : 20,
+                letterSpacing: 1.2,
+                shadows: const [
+                  Shadow(
+                    color: Colors.black38,
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -61,7 +61,7 @@ class _OfflineStageState extends State<OfflineStage>
           Positioned(
             left: 0,
             right: 0,
-            bottom: landscape ? size.height * 0.10 : size.height * 0.07,
+            bottom: landscape ? size.height * 0.22 : size.height * 0.18,
             child: Center(
               child: ScaleTransition(
                 scale: Tween<double>(begin: 0.98, end: 1.02).animate(
