@@ -44,8 +44,13 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Signing
+# Signing & local secrets
 *.jks
 *.keystore
 *.jpg
 transparent.png
+android/app/google-services.json
+android/key.properties
+
+# Per-project build caches
+android/build/
