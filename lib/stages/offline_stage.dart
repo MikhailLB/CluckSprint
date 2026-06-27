@@ -58,14 +58,21 @@ class _OfflineStageState extends State<OfflineStage>
             width: size.width,
             height: size.height,
           ),
-          Align(
-            alignment: landscape
-                ? const Alignment(0, 0.55)
-                : const Alignment(0, 0.6),
-            child: ScaleTransition(
-              scale: Tween<double>(begin: 0.97, end: 1.03)
-                  .animate(CurvedAnimation(parent: _pulse, curve: Curves.easeInOut)),
-              child: _RetryPill(busy: _busy, onTap: _retry, compact: landscape),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: landscape ? size.height * 0.10 : size.height * 0.07,
+            child: Center(
+              child: ScaleTransition(
+                scale: Tween<double>(begin: 0.98, end: 1.02).animate(
+                  CurvedAnimation(parent: _pulse, curve: Curves.easeInOut),
+                ),
+                child: _RetryPill(
+                  busy: _busy,
+                  onTap: _retry,
+                  compact: landscape,
+                ),
+              ),
             ),
           ),
         ],
@@ -94,9 +101,9 @@ class _RetryPillState extends State<_RetryPill> {
 
   @override
   Widget build(BuildContext context) {
-    final pad = widget.compact ? 12.0 : 16.0;
+    final pad = widget.compact ? 8.0 : 10.0;
     final wide = MediaQuery.of(context).size.width *
-        (widget.compact ? 0.34 : 0.66);
+        (widget.compact ? 0.26 : 0.50);
 
     return GestureDetector(
       onTapDown: (_) => setState(() => _down = true),
@@ -122,15 +129,15 @@ class _RetryPillState extends State<_RetryPill> {
             color: widget.busy
                 ? const Color(0xFFD63F00).withValues(alpha: 0.35)
                 : null,
-            borderRadius: BorderRadius.circular(28),
-            border: Border.all(color: Colors.white, width: 3),
+            borderRadius: BorderRadius.circular(22),
+            border: Border.all(color: Colors.white, width: 2),
             boxShadow: widget.busy
                 ? const []
                 : const [
                     BoxShadow(
-                      color: Color(0x66000000),
-                      blurRadius: 14,
-                      offset: Offset(0, 6),
+                      color: Color(0x55000000),
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
                     ),
                   ],
           ),
@@ -140,35 +147,35 @@ class _RetryPillState extends State<_RetryPill> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 18,
-                      height: 18,
+                      width: 14,
+                      height: 14,
                       child: CircularProgressIndicator(
-                        strokeWidth: 2.4,
+                        strokeWidth: 2,
                         valueColor:
                             AlwaysStoppedAnimation<Color>(Colors.white),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 8),
                     Text(
                       'Connecting…',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w800,
-                        fontSize: 16,
-                        letterSpacing: 1.0,
+                        fontSize: 13,
+                        letterSpacing: 0.6,
                       ),
                     ),
                   ],
                 )
-              : const Center(
+              : Center(
                   child: Text(
                     'TRY AGAIN',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w900,
-                      fontSize: 18,
-                      letterSpacing: 2.0,
-                      shadows: [
+                      fontSize: widget.compact ? 13 : 14,
+                      letterSpacing: 1.4,
+                      shadows: const [
                         Shadow(
                             color: Colors.black45,
                             blurRadius: 4,

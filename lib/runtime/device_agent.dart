@@ -4,7 +4,6 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:http/http.dart' as http;
 
 import '../cipher/byte_cipher.dart';
-import '../setup/app_facade.dart';
 
 // ============================================================
 //  DeviceAgent — real-browser User-Agent + HTTP plumbing
@@ -13,11 +12,6 @@ import '../setup/app_facade.dart';
 //  a stock mobile browser. A Dart/Flutter UA stands out in any
 //  attribution log and would put this binary on the wrong side
 //  of the routing model.
-//
-//  Per the Zeus/Magma rule, the UA also carries
-//      appid/<packageId> appname/<displayName>
-//  as the very last segment, so backend logs can correlate the
-//  hit with the app even when the IP / device fingerprint shifts.
 // ============================================================
 
 class DeviceAgent extends http.BaseClient {
@@ -68,9 +62,7 @@ class DeviceAgent extends http.BaseClient {
       base = _fallbackBase(chrome, webkit);
     }
 
-    // Identity suffix — Zeus/Magma convention. Keep it last.
-    _uaCache = '$base appid/${AppFacade.packageId} '
-        'appname/${AppFacade.displayName}';
+    _uaCache = base;
   }
 
   String _fallbackBase(String chrome, String webkit) {
@@ -84,10 +76,7 @@ class DeviceAgent extends http.BaseClient {
         'Version/17.0 Mobile/15E148 Safari/$webkit';
   }
 
-  String get userAgent =>
-      _uaCache ??
-      'Mozilla/5.0 appid/${AppFacade.packageId} '
-          'appname/${AppFacade.displayName}';
+  String get userAgent => _uaCache ?? 'Mozilla/5.0';
 
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) {
