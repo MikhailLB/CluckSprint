@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Cleartext (plain HTTP) is disabled by default from Android 9 (API 28).
+    Affiliate/tracking chains still occasionally hop through HTTP redirects
+    before landing on HTTPS, so we opt back in explicitly. Both the
+    WebView (WebViewStage) and the raw HTTP client (DeviceAgent) share this
+    policy — without it either can hit net::ERR_CLEARTEXT_NOT_PERMITTED.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+</network-security-config>

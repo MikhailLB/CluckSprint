@@ -13,6 +13,8 @@
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:extractNativeLibs="false"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         tools:replace="android:allowBackup,android:fullBackupContent">
 
         <activity
